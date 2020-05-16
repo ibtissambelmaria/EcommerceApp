@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ECOMMERCEDBModelStoreContainer" CdmEntityContainer="ECOMMERCEDBEntities">
+    <EntitySetMapping Name="Administration">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.Administration)">
+        <MappingFragment StoreEntitySet="Administration">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.Categorie)">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="Image" ColumnName="Images" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ligne_de_commande">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.ligne_de_commande)">
+        <MappingFragment StoreEntitySet="ligne_de_commande">
+          <ScalarProperty Name="Qauntity" ColumnName="Qauntity" />
+          <ScalarProperty Name="PieceID" ColumnName="PieceID" />
+          <ScalarProperty Name="ProduitsID" ColumnName="ProduitsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promotion">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.Promotion)">
+        <MappingFragment StoreEntitySet="Promotion">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ValeurPromotion" ColumnName="ValeurPromotion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PromotionProduit">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.PromotionProduit)">
+        <MappingFragment StoreEntitySet="PromotionProduit">
+          <ScalarProperty Name="PromotionID" ColumnName="PromotionID" />
+          <ScalarProperty Name="ProduitsID" ColumnName="ProduitsID" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="DateExpidite" ColumnName="DateExpidite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.Client)">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="AdressFacturation" ColumnName="AdressFacturation" />
+          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+          <ScalarProperty Name="AdressBonLivraison" ColumnName="AdressBonLivraison" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Piece">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.Piece)">
+        <MappingFragment StoreEntitySet="Piece">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="DateCommande" ColumnName="DateCommande" />
+          <ScalarProperty Name="NumCommande" ColumnName="NumCommande" />
+          <ScalarProperty Name="IdFacture" ColumnName="IdFacture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produits">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.Produits)">
+        <MappingFragment StoreEntitySet="Produits">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.C__MigrationHistory)">
+        <MappingFragment StoreEntitySet="C__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.AspNetRoles)">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.AspNetUserClaims)">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.AspNetUserLogins)">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="IsTypeOf(ECOMMERCEDBModel.AspNetUsers)">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Categorie_Produits" TypeName="ECOMMERCEDBModel.Categorie_Produits" StoreEntitySet="Categorie_Produits">
+      <EndProperty Name="Produits">
+        <ScalarProperty Name="ID" ColumnName="Produits_ID" />
+      </EndProperty>
+      <EndProperty Name="Categorie">
+        <ScalarProperty Name="ID" ColumnName="Categorie_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="ECOMMERCEDBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="AspNetRoles_Id" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="AspNetUsers_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

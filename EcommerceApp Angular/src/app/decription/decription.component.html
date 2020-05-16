@@ -1,0 +1,76 @@
+<div class="container my-4">
+    <div class="card">
+        <div class="row no-gutters">
+            <aside class="col-md-6">
+                <article class="gallery-wrap">
+                    <div class="img-big-wrap">
+                        <img class="card-img-top" src="https://localhost:44385/{{detail.Image}}" alt="Card image cap">
+                    </div>
+                    <!-- slider-product.// -->
+
+                    <!-- slider-nav.// -->
+                </article>
+                <!-- gallery-wrap .end// -->
+            </aside>
+            <main class="col-md-6 border-left">
+                <article class="content-body">
+                    <h2 class="title">{{detail.Nom}}</h2>
+                    <div class="rating-wrap my-3">
+                        <ul class="rating-stars">
+                        </ul>
+                        <ngb-rating [rate]="5"></ngb-rating>
+                        <small class="label-rating text-muted">  {{detail.Decription}}</small>
+
+                    </div>
+                    <!-- rating-wrap.// -->
+                    <div class="mb-3">
+                        <var class="price h4"><strong>Prix: </strong>{{detail.Prix | currency: 'USD' : 'symbol':'2.2-3'}}</var>
+
+
+                    </div>
+                    <div class="mb-3">
+                        <var class="price h5" style="color: red;"><strong>Promotion: </strong>{{detail.PrixPromo | currency: 'USD' : 'symbol':'2.2-3'}}</var>
+
+                    </div>
+                    <!-- price-detail-wrap .// -->
+                    <h5 style="color: green;">Description Produit:</h5>
+                    <p>{{detail.Description}}</p>
+                    <h5><strong>Stock:</strong>{{detail.Stock}}</h5>
+
+
+                    <dl class="row">
+
+
+                        <dt class="col-sm-3">Livraison</dt>
+                        <dd class="col-sm-9">Maroc </dd>
+                    </dl>
+
+                    <hr>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+
+                            <div class="input-group mb-3 input-spinner">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-light" type="button" id="button-plus"> + </button>
+                                </div>
+                                <input type="text" class="form-control" value="1">
+                                <div class="input-group-append">
+                                    <button class="btn btn-light" type="button" id="button-minus"> − </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- col.// -->
+                    </div>
+                    <!-- row.// -->
+
+                    <a href="#" class="btn  btn-primary"> Buy now </a>
+                    <a href="#" class="btn  btn-outline-primary mx-2"> <span class="text">Add to cart</span> <i class="fa fa-shopping-cart"></i> </a>
+                </article>
+                <!-- product-info-aside .// -->
+            </main>
+            <!-- col.// -->
+        </div>
+        <!-- row.// -->
+    </div>
+    <!-- card.// -->
+</div>

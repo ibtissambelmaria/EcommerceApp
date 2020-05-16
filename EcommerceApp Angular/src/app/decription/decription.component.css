@@ -1,0 +1,7 @@
+ngb-rating {
+    color: gold;
+  }  
+
+.rating-wrap ngb-rating {
+  font-size: 30px;
+}

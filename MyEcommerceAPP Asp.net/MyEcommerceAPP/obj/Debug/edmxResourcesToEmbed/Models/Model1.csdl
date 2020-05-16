@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECOMMERCEDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Administration">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Produits" Relationship="ECOMMERCEDBModel.Categorie_Produits" FromRole="Categorie" ToRole="Produits" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ligne_de_commande">
+    <Key>
+      <PropertyRef Name="Qauntity" />
+      <PropertyRef Name="PieceID" />
+      <PropertyRef Name="ProduitsID" />
+    </Key>
+    <Property Name="Qauntity" Type="Int32" Nullable="false" />
+    <Property Name="PieceID" Type="Int32" Nullable="false" />
+    <Property Name="ProduitsID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Produits" Relationship="ECOMMERCEDBModel.quantity2" FromRole="ligne_de_commande" ToRole="Produits" />
+  </EntityType>
+  <EntityContainer Name="ECOMMERCEDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Administration" EntityType="Self.Administration" />
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+    <EntitySet Name="ligne_de_commande" EntityType="Self.ligne_de_commande" />
+    <EntitySet Name="Promotion" EntityType="ECOMMERCEDBModel.Promotion" />
+    <EntitySet Name="PromotionProduit" EntityType="ECOMMERCEDBModel.PromotionProduit" />
+    <AssociationSet Name="FK_PromotionProduit_Promotion" Association="ECOMMERCEDBModel.FK_PromotionProduit_Promotion">
+      <End Role="Promotion" EntitySet="Promotion" />
+      <End Role="PromotionProduit" EntitySet="PromotionProduit" />
+    </AssociationSet>
+    <EntitySet Name="Client" EntityType="ECOMMERCEDBModel.Client" />
+    <EntitySet Name="Piece" EntityType="ECOMMERCEDBModel.Piece" />
+    <AssociationSet Name="FKPiece681709" Association="ECOMMERCEDBModel.FKPiece681709">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Piece" EntitySet="Piece" />
+    </AssociationSet>
+    <EntitySet Name="Produits" EntityType="ECOMMERCEDBModel.Produits" />
+    <AssociationSet Name="FK_PromotionProduit_Produit" Association="ECOMMERCEDBModel.FK_PromotionProduit_Produit">
+      <End Role="Produits" EntitySet="Produits" />
+      <End Role="PromotionProduit" EntitySet="PromotionProduit" />
+    </AssociationSet>
+    <AssociationSet Name="quantity2" Association="ECOMMERCEDBModel.quantity2">
+      <End Role="Produits" EntitySet="Produits" />
+      <End Role="ligne_de_commande" EntitySet="ligne_de_commande" />
+    </AssociationSet>
+    <AssociationSet Name="Categorie_Produits" Association="ECOMMERCEDBModel.Categorie_Produits">
+      <End Role="Produits" EntitySet="Produits" />
+      <End Role="Categorie" EntitySet="Categorie" />
+    </AssociationSet>
+    <EntitySet Name="C__MigrationHistory" EntityType="ECOMMERCEDBModel.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="ECOMMERCEDBModel.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="ECOMMERCEDBModel.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="ECOMMERCEDBModel.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="ECOMMERCEDBModel.AspNetUsers" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="ECOMMERCEDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="ECOMMERCEDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="ECOMMERCEDBModel.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Promotion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ValeurPromotion" Type="Double" />
+    <NavigationProperty Name="PromotionProduit" Relationship="ECOMMERCEDBModel.FK_PromotionProduit_Promotion" FromRole="Promotion" ToRole="PromotionProduit" />
+  </EntityType>
+  <EntityType Name="PromotionProduit">
+    <Key>
+      <PropertyRef Name="PromotionID" />
+      <PropertyRef Name="ProduitsID" />
+    </Key>
+    <Property Name="PromotionID" Type="Int32" Nullable="false" />
+    <Property Name="ProduitsID" Type="Int32" Nullable="false" />
+    <Property Name="DateDebut" Type="DateTime" Precision="3" />
+    <Property Name="DateExpidite" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Promotion" Relationship="ECOMMERCEDBModel.FK_PromotionProduit_Promotion" FromRole="PromotionProduit" ToRole="Promotion" />
+    <NavigationProperty Name="Produits" Relationship="ECOMMERCEDBModel.FK_PromotionProduit_Produit" FromRole="PromotionProduit" ToRole="Produits" />
+  </EntityType>
+  <Association Name="FK_PromotionProduit_Promotion">
+    <End Type="ECOMMERCEDBModel.Promotion" Role="Promotion" Multiplicity="1" />
+    <End Type="ECOMMERCEDBModel.PromotionProduit" Role="PromotionProduit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promotion">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PromotionProduit">
+        <PropertyRef Name="PromotionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AdressFacturation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreation" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Piece" Relationship="ECOMMERCEDBModel.FKPiece681709" FromRole="Client" ToRole="Piece" />
+    <Property Name="AdressBonLivraison" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Piece">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Int32" />
+    <Property Name="DateCommande" Type="DateTime" Precision="3" />
+    <Property Name="NumCommande" Type="Int32" />
+    <Property Name="IdFacture" Type="Int32" />
+    <NavigationProperty Name="Client" Relationship="ECOMMERCEDBModel.FKPiece681709" FromRole="Piece" ToRole="Client" />
+  </EntityType>
+  <Association Name="FKPiece681709">
+    <End Type="ECOMMERCEDBModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="ECOMMERCEDBModel.Piece" Role="Piece" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Piece">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Produits">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Prix" Type="Double" />
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PromotionProduit" Relationship="ECOMMERCEDBModel.FK_PromotionProduit_Produit" FromRole="Produits" ToRole="PromotionProduit" />
+    <NavigationProperty Name="ligne_de_commande" Relationship="ECOMMERCEDBModel.quantity2" FromRole="Produits" ToRole="ligne_de_commande" />
+    <NavigationProperty Name="Categorie" Relationship="ECOMMERCEDBModel.Categorie_Produits" FromRole="Produits" ToRole="Categorie" />
+  </EntityType>
+  <Association Name="FK_PromotionProduit_Produit">
+    <End Type="ECOMMERCEDBModel.Produits" Role="Produits" Multiplicity="1" />
+    <End Type="ECOMMERCEDBModel.PromotionProduit" Role="PromotionProduit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produits">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PromotionProduit">
+        <PropertyRef Name="ProduitsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="quantity2">
+    <End Type="ECOMMERCEDBModel.Produits" Role="Produits" Multiplicity="1" />
+    <End Type="ECOMMERCEDBModel.ligne_de_commande" Role="ligne_de_commande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produits">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ligne_de_commande">
+        <PropertyRef Name="ProduitsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Categorie_Produits">
+    <End Type="ECOMMERCEDBModel.Produits" Role="Produits" Multiplicity="*" />
+    <End Type="ECOMMERCEDBModel.Categorie" Role="Categorie" Multiplicity="*" />
+  </Association>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ECOMMERCEDBModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ECOMMERCEDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="ECOMMERCEDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="ECOMMERCEDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="ECOMMERCEDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="ECOMMERCEDBModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="ECOMMERCEDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ECOMMERCEDBModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="ECOMMERCEDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ECOMMERCEDBModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="ECOMMERCEDBModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="ECOMMERCEDBModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+</Schema>
