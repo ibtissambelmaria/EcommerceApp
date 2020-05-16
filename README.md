@@ -553,8 +553,6 @@ Les délais sont estimés vers 30 jours.
 -----------------------------------------------------------------------------------------------------------
 # design graphic du projet
 
-## accueil:
-............en cours de développement.
 ![Screenshot 3](img/screencapture.jpg)
 
  
@@ -603,9 +601,9 @@ on a fait juste la partie backend mais nous sommes encours travaille sur cette p
 
 
 
-
-![Screenshot ](img/produits.png)
 liste porduits
+![Screenshot ](img/produits.png)
+
 
 • ID: number;
 • Nom:String;
