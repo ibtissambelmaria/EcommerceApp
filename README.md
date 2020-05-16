@@ -577,7 +577,7 @@ Projet ASP.NET utilisant identité et entité Framework.
 
 
 ### AUTHENTIFICATION :
-on a fait juste la partie backend mais nous sommes encours travaille sur cette partie
+on a fait juste la partie backend mais nous sommes encours travaille sur cette partie sur la partie front end
 
 ![Screenshot ](img/signup.png)
 ![Screenshot ](img/Login.png)
