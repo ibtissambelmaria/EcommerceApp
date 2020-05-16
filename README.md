@@ -553,10 +553,10 @@ Les délais sont estimés vers 30 jours.
 -----------------------------------------------------------------------------------------------------------
 # design graphic du projet
 
-![Screenshot 3](img/screencapture.jpg)
+![Screenshot 3](img/screencapture.png)
 
  
- ![Screenshot ](img/screencapture-Details.jpg)
+ ![Screenshot ](img/screencapture-Details.png)
  
  -----------------------------------------------------------------------------------------------------------
  
