@@ -6,7 +6,7 @@ EcommerceDB
 coller dasn votre base donnée "EcommerceDB" script SQL qui se trouve dans le dossier "MyEcommerceAPP"
 execute pour générer les tableau :
 
-
+```text
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
@@ -481,7 +481,7 @@ GO
 -- --------------------------------------------------
 -- Script has ended
 -- --------------------------------------------------
-
+```
 
 et il faut créer une nouvel connexion nommé:
 EcommerceDBEntities
@@ -581,7 +581,7 @@ Projet ASP.NET utilisant identité et entité Framework.
 on a fait juste la partie backend mais nous sommes encours travaille sur cette partie
 
 ![Screenshot ](img/signup.jpg)
-![Screenshot ](img/Login.jpg)
+![Screenshot ](img/login.png)
 
 #### •	Pour s’identifier il faut utiliser :
   ##### /token et envoyer au body :(Post)
